@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bibliografía APA - XIX Congreso SLAN</title>
+<style>
+  :root {
+    --primary: #1e3a5f;
+    --primary-light: #2c5282;
+    --accent: #3182ce;
+    --bg: #f7fafc;
+    --card-bg: #ffffff;
+    --text: #1a202c;
+    --text-muted: #4a5568;
+    --border: #e2e8f0;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 8px rgba(0,0,0,0.1), 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0 1rem 3rem;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* ---------- TOP BANNER: CONGRESO ---------- */
+  .congress-banner {
+    background: #0f172a;
+    color: #e2e8f0;
+    text-align: center;
+    padding: 1.15rem 1rem;
+    margin: 0 -1rem;
+    border-bottom: 1px solid #1e293b;
+    letter-spacing: 0.02em;
+  }
+
+  .congress-banner .congress-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #94a3b8;
+    margin-bottom: 0.35rem;
+  }
+
+  .congress-banner .congress-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #f1f5f9;
+  }
+
+  /* ---------- HEADER: TÍTULO Y AUTORES ---------- */
+  header.article-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: 0 0 16px 16px;
+    padding: 2.5rem 2rem;
+    margin: 0 -1rem 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  .article-header h1 {
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin-bottom: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .authors {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #bee3f8;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .authors sup {
+    font-size: 0.7rem;
+    margin-left: 2px;
+    color: #90cdf4;
+  }
+
+  /* ---------- SECTION TITLE ---------- */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 2.5rem 0 1.25rem;
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .section-title::before {
+    content: "";
+    width: 5px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+
+  /* ---------- SEARCH ---------- */
+  .search-wrap {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .search-wrap input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+
+  .search-wrap input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(49,130,206,0.15);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  /* ---------- REFERENCES ---------- */
+  .references {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .ref-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ref-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .ref-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: #cbd5e0;
+  }
+
+  .ref-card:hover::before {
+    opacity: 1;
+  }
+
+  .ref-number {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: #ebf8ff;
+    padding: 0.15rem 0.55rem;
+    border-radius: 6px;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.03em;
+  }
+
+  .ref-apa {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--text);
+    text-indent: -1.5rem;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .ref-apa em { font-style: italic; }
+
+  .ref-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(49,130,206,0.4);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-light);
+    box-shadow: 0 4px 10px rgba(49,130,206,0.4);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    background: #edf2f7;
+    color: var(--text);
+  }
+
+  .btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 720px) {
+    .congress-banner { padding: 0.95rem 1rem; }
+    .congress-banner .congress-name { font-size: 0.95rem; }
+    header.article-header { padding: 1.75rem 1.25rem; margin-bottom: 1.5rem; }
+    .article-header h1 { font-size: 1.4rem; }
+    .authors { font-size: 0.95rem; }
+    .section-title { font-size: 1.2rem; }
+  }
+
+  /* ---------- TOAST ---------- */
+  .toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%);
+    background: var(--primary);
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    max-width: 90vw;
+    text-align: center;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ============ BANNER: NOMBRE DEL CONGRESO ============ -->
+<div class="congress-banner">
+  <span class="congress-label">Congreso</span>
+  <span class="congress-name">XIX Congreso de la Sociedad Latinoamericana de Neuropsicología</span>
+</div>
+
+<!-- ============ HEADER: TÍTULO Y AUTORES ============ -->
+<header class="article-header">
+  <h1>Impacto de un programa de actividad física aeróbica sobre el rendimiento cognitivo en adultos sedentarios con sobrepeso.</h1>
+  <p class="authors">
+    Castillo, N. A., Proo, C. E. M., Uribe, A. G., Juárez, M. A. H., García, D. A. F., López-Walle, J., Ortiz-Jiménez, X. &amp; Gutiérrez-Muñoz, M.
+  </p>
+</header>
+
+<main class="container">
+
+  <h2 class="section-title">Referencias bibliográficas (APA 7)</h2>
+
+  <div class="search-wrap">
+    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="text" id="searchInput" placeholder="Buscar por autor, título o año..." autocomplete="off">
+  </div>
+
+  <div class="references" id="referencesContainer"></div>
+
+  <footer>
+    <p>© <span id="year"></span> — Bibliografía del póster científico. Generado para GitHub Pages.</p>
+  </footer>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   REFERENCIAS
+   ------------------------------------------------------------
+   - apa:  Texto de la referencia en formato APA 7.
+   - url:  Enlace al artículo (se abrirá al pulsar "Ver artículo").
+   ============================================================ */
+const references = [
+  {
+    apa: 'Galle, S. A., Deijen, J. B., Milders, M. V., De Greef, M. H. G., Scherder, E. J. A., van Duijn, C. M., & Drent, M. L. (2023). The effects of a moderate physical activity intervention on physical fitness and cognition in healthy elderly with low levels of physical activity: A randomized controlled trial. <em>Alzheimer\'s Research &amp; Therapy</em>, <em>15</em>(1), 12. https://doi.org/10.1186/s13195-022-01123-3',
+    url: 'https://doi.org/10.1186/s13195-022-01123-3'
+  },
+  {
+    apa: 'National Institute on Aging. (2025). <em>Three types of exercise can improve your health and physical ability</em>. https://www.nia.nih.gov/health/exercise-and-physical-activity/three-types-exercise-can-improve-your-health-and-physical',
+    url: 'https://www.nia.nih.gov/health/exercise-and-physical-activity/three-types-exercise-can-improve-your-health-and-physical'
+  },
+  {
+    apa: 'Ord, A. S., Eldridge, A. H., Netz, D. R., Kuschel, S. G., Holland, J., Long, T., Dumas, C., Glover, C., Schools, M., Stephens, R., Magnante, A. T., & Sautter, S. W. (2024). Physical activity and neuropsychological functioning in older adults. <em>Gerontology &amp; Geriatric Medicine</em>, <em>10</em>, 23337214241262924. https://doi.org/10.1177/23337214241262924',
+    url: 'https://doi.org/10.1177/23337214241262924'
+  },
+  {
+    apa: 'Organización Mundial de la Salud. (2025). <em>Obesidad y sobrepeso</em>. https://www.who.int/es/news-room/fact-sheets/detail/obesity-and-overweight',
+    url: 'https://www.who.int/es/news-room/fact-sheets/detail/obesity-and-overweight'
+  },
+  {
+    apa: 'Tristan, J., Vergara, A., Guzmán, S., López-Walle, J., Ramírez, R., López, M., Loredo, M., Donald, P., Ovalle, J., González, Y., Cantú, A., García, M., Durán, A., Jimenez, J., Rodenas, L., Banda, N., Ríos, P., Rodríguez, M., Ayala, H., Chavez, L., … Montalvo, S. (2025). Metodología TIGREFIT: Bienestar y Salud Incomparable. <em>Tendencias</em>.',
+    url: 'https://www.tendencias.com'
+  }
+];
+
+/* ============================================================
+   RENDERIZADO
+   ============================================================ */
+const container = document.getElementById('referencesContainer');
+const searchInput = document.getElementById('searchInput');
+const toast = document.getElementById('toast');
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function linkIcon() {
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+}
+
+function copyIcon() {
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+function plainText(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  return tmp.textContent || '';
+}
+
+function render(list) {
+  if (!list.length) {
+    container.innerHTML = '<div class="empty-state">No se encontraron referencias que coincidan con tu búsqueda.</div>';
+    return;
+  }
+
+  container.innerHTML = list.map((ref, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    return `
+      <article class="ref-card">
+        <span class="ref-number">REF ${num}</span>
+        <p class="ref-apa">${ref.apa}</p>
+        <div class="ref-actions">
+          <a class="btn btn-primary" href="${ref.url}" target="_blank" rel="noopener noreferrer" data-url="${ref.url}">
+            ${linkIcon()} Ver artículo
+          </a>
+          <button class="btn btn-ghost" data-copy="${escapeHtml(plainText(ref.apa))}">
+            ${copyIcon()} Copiar cita
+          </button>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+/* ---------- Búsqueda ---------- */
+searchInput.addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) return render(references);
+  const filtered = references.filter(r =>
+    plainText(r.apa).toLowerCase().includes(q)
+  );
+  render(filtered);
+});
+
+/* ---------- Delegación: copiar ---------- */
+container.addEventListener('click', e => {
+  const copyBtn = e.target.closest('[data-copy]');
+  if (copyBtn) {
+    const text = copyBtn.getAttribute('data-copy');
+    navigator.clipboard.writeText(text).then(
+      () => showToast('Cita copiada al portapapeles ✓'),
+      () => showToast('No se pudo copiar la cita')
+    );
+  }
+});
+
+/* ---------- Año dinámico ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Render inicial ---------- */
+render(references);
+</script>
+</body>
+</html>
